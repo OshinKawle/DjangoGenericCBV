@@ -1,0 +1,17 @@
+
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+    <h1>CONFIRM DELETE </h1>
+    <p>Do you want to delete ?-{{object.title}}</p>
+    <form method="post" class="jumbotron">
+        {% csrf_token %}
+       <a href="{% url 'del_ts' object.id %}"><button>DELETE</button></a>
+
+    </form>
+    <a href="{% url 'list_ts' %}"><button>CANCLE</button></a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1 style="text-align:center">ALL LAPTOPS</h1>
+<table border="1px" class="center">
+    <tr style="background-color:grey;text-align:center">
+        <th>Company</th>
+        <th>Model_Name</th>
+        <th>Ram</th>
+        <th>Rom</th>
+        <th>Processor</th>
+        <th>Price</th>
+        <th>Weight</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    {% for lap in laptop_list %}
+    <tr style="background-color:silver;text-align:center">
+        <td>{{lap.company}}</td>
+        <td>{{lap.model_name}}</td>
+        <td>{{lap.ram}}</td>
+        <td>{{lap.rom}}</td>
+        <td>{{lap.processor}}</td>
+        <td>{{lap.price}}</td>
+        <td>{{lap.weight}}</td>
+         <td><a href="{% url 'del_ts' lap.id %}"><button style="background-color:red">DELETE</button></a> </td>
+      <td><a href="{% url 'upd_ts' lap.id %}"><button style="background-color:green">UPDATE</button></a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
